@@ -1,0 +1,12 @@
+retMapMsgM：
+	传进map的是ofs报文格式的字符串
+	
+	最终保存到map中的数据是：字段=[实体对象n]
+
+autRetMsg：
+	入参是map中的数据
+	出参是copybook格式数据
+	
+	123
+	1.2
+	HKD
