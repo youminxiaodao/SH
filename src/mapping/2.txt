@@ -1,0 +1,6 @@
+DAHF:
+COMM HDR: 'HSHFSHFSH180525SH167076DAHFASN2018-05-2511:50:34000000000000302919YSH167076N034                                                                       '
+
+
+DARF:
+COMM HDR: 'HSHFSHFSH180430SH154234DARFASN2018-04-3018:47:17000000000000302919YSH154234N012                                                                       '

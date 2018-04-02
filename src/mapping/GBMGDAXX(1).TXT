@@ -1,0 +1,192 @@
+                                                                                
+      *********************************************************************     
+      *                                                                   *     
+      *  RECORD DESCRIPTION : A/C UPDATE FOR DA SYSTEM                    *     
+      *  COPY FILE NAME     : DEVPT.COPYLIB(GBMGDAXX)                     *     
+      *  CREATION DATE      : 2003/04/28                                  *     
+      *                                                                   *     
+      *===================================================================*     
+      *  INPUT FIELD DESCRIPTION                                          *     
+      *===================================================================*     
+      *  GBMGDAXXQ-PTX-CD         PARENT TRANSACTION CODE                 *     
+      *  GBMGDAXXQ-BRANCH-ID      BRANCH ID                               *     
+      *  GBMGDAXXQ-DEPT-ID        DEPARTMENT ID                           *     
+      *  GBMGDAXXQ-TLR-ID         TELLER ID                               *     
+      *  GBMGDAXXQ-TERM-ID        TERMINAL ID                             *     
+      *  GBMGDAXXQ-AC-NO          ACCOUNT NUMBER                          *     
+      *  GBMGDAXXQ-CCY-CD         TRANSACTION CCY CODE                    *     
+      *  GBMGDAXXQ-TX-AMT         TRANSACTION AMOUNT                      *     
+      *  GBMGDAXXQ-REF            TRANSACTION REFERENCE                   *     
+      *  GBMGDAXXQ-APP-REF        TRANSACTION APPLICATION REFERENCE       *     
+      *  GBMGDAXXQ-RMK            REMARK                                  *     
+      *  GBMGDAXXQ-SRCE-CD        SOURCE CODE                             *     
+      *  GBMGDAXXQ-PSB-MNEM       PASSBOOK MNEMONIC                       *     
+      *  GBMGDAXXQ-POST-DT        POST DATE                               *     
+      * ----------------------------------------------------------------- *     
+      *  GBMGDAXXQ-HLD-CCY-CD     HOLD FUND CCY CODE                      *     
+      *  GBMGDAXXQ-HLD-AMT        HOLD FUND AMOUNT                        *     
+      *  GBMGDAXXQ-HLD-RLS-DT     HOLD FUND RELEASE SATE                  *     
+      *  GBMGDAXXQ-HLD-RSON-CD    HOLD FUND REASON CODE                   *     
+      * ----------------------------------------------------------------- *     
+      *  GBMGDAXXQ-RV-HLD-CCY-CD  REMOVE HOLD FUND CCY CODE               *     
+      *  GBMGDAXXQ-RV-HLD-AMT     REMOVE HOLD FUND AMOUNT                 *     
+      *  GBMGDAXXQ-RV-HLD-RLS-DT  REMOVE HOLD FUND RELEASE SATE           *     
+      *  GBMGDAXXQ-RV-HLD-RSON-CD REMOVE HOLD FUND REASON CODE            *     
+      *  GBMGDAXXQ-RV-TX-DT       TRANSACTION DATE                        *     
+      *  GBMGDAXXQ-RV-PLC-BR      PLACING BRANCH                          *     
+      *  GBMGDAXXQ-RV-PLC-DP      PLACING DEPARTMENT                      *     
+      *  GBMGDAXXQ-RV-HLD-ID      HOLD FUND ID                            *     
+      * ----------------------------------------------------------------- *     
+      *  GBMGDAXXQ-CR-FAC-TP      CREDIT FACILITY TYPE                    *     
+      *                            UE - UNCLEAR EFFECT FACILITY           *     
+      *                            OD - O/D FACILITY                      *     
+      *                            RL - REVOLVING LOAN FACILITY           *     
+      *  GBMGDAXXQ-NEW-CR-LMT     NEW CREDIT LIMIT                        *     
+      *  GBMGDAXXQ-AMT-SIGN       AMOUNT SIGN ( ' ' - ADD                 *     
+      *                                         '-' - SUBTRACT  )         *     
+      * ----------------------------------------------------------------- *     
+      *  GBMGDAXXQ-EXTRA-UEF-LMT   EXTRA APPROVED O/D LIMIT               *     
+      * ----------------------------------------------------------------- *     
+      *  OUTPUT PARM:                                                     *     
+      * ----------------------------------------------------------------- *     
+      *  GBMGDAXXA-PROD-TP-CD     PRODUCT TYPE CODE                       *     
+      *  GBMGDAXXA-PROD-CAT-CD    PRODUCT CATEGORY CODE                   *     
+      *  GBMGDAXXA-PROD-CD        PRODUCT CODE                            *     
+      *  GBMGDAXXA-PROD-PLAN      PRODUCT PLAN ASSOCIATED WITH A/C        *     
+      *  GBMGDAXXA-AC-SNAME       ACCOUNT ENGLISH SHORT NAME              *     
+      *  GBMGDAXXA-AC-STS         ACCOUNT STATUS                          *     
+      *                            O - OPEN                               *     
+      *                            C - CLOSED                             *     
+      *                            D - DELETED                            *     
+      *  GBMGDAXXA-LSTFIN-DT      LAST FINANCIAL DATE                     *     
+      * ----------------------------------------------------------------  *     
+      *  BELOW ACCOUNT BALANCE INFORMATION (20 ENTRIES)                   *     
+      * ----------------------------------------------------------------  *     
+      *  GBMGDAXXA-CCY-CD         CCY CODE                                *     
+      *  GBMGDAXXA-LEDG-BAL       LEDGER BALANCE                          *     
+      *  GBMGDAXXA-AVAIL-BAL      AVAILABLE BALANCE                       *     
+      *  GBMGDAXXA-TTL-FLT-AMT    TOTAL FLOAT AMOUNT                      *     
+      *  GBMGDAXXA-TTL-HLD-AMT    TOTAL HOLD  AMOUNT                      *     
+      *  GBMGDAXXA-CR-LMT         CREDIT LIMIT                            *     
+      * ----------------------------------------------------------------  *     
+      *  GBMGDAXXA-HLD-PLC-DT     HOLD FUND PLACE DATE                    *     
+      * ----------------------------------------------------------------  *     
+      *  GBMGDAXXA-MSG-INDEX      NO OF RETURNED MESSAGES                 *     
+      *  GBMGDAXXA-MSG-CODE       MESSAGE CODE                            *     
+      *  GBMGDAXXA-MSG-TEXT       MESSAGE TEXT                            *     
+      *  GBMGDAXXA-MSG-REF        MESSAGE REFERENCE                       *     
+      *  GBMGDAXXA-MSG-OVRD-LVL1  MESSAGE OVERDUE LEVEL 1                 *     
+      *  GBMGDAXXA-MSG-OVRD-LVL2  MESSAGE OVERDUE LEVEL 2                 *     
+      *  GBMGDAXXA-MSG-OVRD-TYPE  MESSAGE OVERDUE TYPE                    *     
+      *  GBMGDAXXA-MSG-PRIORITY   MESSAGE PROIORITY                       *     
+      *  GBMGDAXXA-MSG-LMT-AMT    MESSAGE LIMIT AMOUNT                    *     
+      *  GBMGDAXXA-MSG-LMT-SIGN   MESSAGE LIMIT SIGN                      *     
+      *  GBMGDAXXA-MSG-LMT-TP     MESSAGE LIMIT TYPE                      *     
+      *  GBMGDAXXA-MSG-AUTH-TP1   MESSAGE AUTH TYPE 1                     *     
+      *  GBMGDAXXA-MSG-AUTH-TP2   MESSAGE AUTH TYPE 2                     *     
+      *  GBMGDAXXA-MSG-EXMSG-CD   MESSAGE EXMSG CODE                      *     
+      *  GBMGDAXXA-MSG-PRD-CD     MESSAGE PRODUCT CODE                    *     
+      *********************************************************************     
+      *              DATE /                                               *     
+      * PROJ AMEND # DESC   PGMR                                          *     
+      * V806 GB1324  130509 ANDY WU                                       *     
+      *              EXTRA-UEF-LMT AND PROD-PLAN REMOVED                  *     
+      *********************************************************************     
+      *              DATE /                                               *     
+      * PROJ AMEND # DESC   PGMR                                          *     
+      * V870 GBXXXX  160202 LUCAS ZHAO                                    *     
+      *              CHANGE EDIT NUMERIC '-' TO '+'                       *     
+      *********************************************************************     
+      *              DATE /                                               *     
+      * PROJ AMEND # DESC   PGMR                                          *     
+      * K837 GBXXXX  171206 BOB LIU                                       *     
+      *              ADD FIELD GBMGDAXXQ-RV-HLD-ID                        *     
+      *********************************************************************     
+                                                                                
+       01 GBMGDAXXQ.                                                            
+          05 GBMGDAXXQ-PTX-CD                  PIC X(06).                       
+          05 GBMGDAXXQ-BRANCH-ID               PIC X(03).                       
+          05 GBMGDAXXQ-DEPT-ID                 PIC X(02).                       
+          05 GBMGDAXXQ-TLR-ID                  PIC X(08).                       
+          05 GBMGDAXXQ-TERM-ID                 PIC X(04).                       
+                                                                                
+          05 GBMGDAXXQ-AC-NO                   PIC X(11).                       
+          05 GBMGDAXXQ-CCY-CD                  PIC X(03).                       
+      *   05 GBMGDAXXQ-TX-AMT                  PIC 9(13)V99-.             160202
+          05 GBMGDAXXQ-TX-AMT                  PIC 9(13)V99+.             160202
+          05 GBMGDAXXQ-REF                     PIC X(20).                       
+          05 GBMGDAXXQ-APP-REF                 PIC X(08).                       
+          05 GBMGDAXXQ-RMK                     PIC X(50).                       
+          05 GBMGDAXXQ-SRCE-CD                 PIC X(02).                       
+          05 GBMGDAXXQ-PSB-MNEM                PIC X(06).                       
+          05 GBMGDAXXQ-POST-DT                 PIC X(10).                       
+          05 GBMGDAXXQ-FILLER                  PIC X(1000).                     
+          05 GBMGDAXXQ-HLD-FUND-INFO REDEFINES GBMGDAXXQ-FILLER.                
+             10 GBMGDAXXQ-HLD-CCY-CD           PIC X(03).                       
+      *      10 GBMGDAXXQ-HLD-AMT              PIC 9(13)V99-.             160202
+             10 GBMGDAXXQ-HLD-AMT              PIC 9(13)V99+.             160202
+             10 GBMGDAXXQ-HLD-RLS-DT           PIC X(10).                       
+             10 GBMGDAXXQ-HLD-RSON-CD          PIC X(03).                       
+          05 GBMGDAXXQ-RMV-FUND-INFO REDEFINES GBMGDAXXQ-FILLER.                
+             10 GBMGDAXXQ-RV-HLD-CCY-CD        PIC X(03).                       
+      *      10 GBMGDAXXQ-RV-HLD-AMT           PIC 9(13)V99-.             160202
+             10 GBMGDAXXQ-RV-HLD-AMT           PIC 9(13)V99+.             160202
+             10 GBMGDAXXQ-RV-HLD-RLS-DT        PIC X(10).                       
+             10 GBMGDAXXQ-RV-HLD-RSON-CD       PIC X(03).                       
+             10 GBMGDAXXQ-RV-TX-DT             PIC X(10).                       
+             10 GBMGDAXXQ-RV-PLC-BR            PIC X(03).                       
+             10 GBMGDAXXQ-RV-PLC-DP            PIC X(02).                       
+             10 GBMGDAXXQ-RV-HLD-ID            PIC X(20).                 171206
+          05 GBMGDAXXQ-CREDIT-SUBLMT-DTL REDEFINES GBMGDAXXQ-FILLER.            
+             10 GBMGDAXXQ-CR-FAC-TP            PIC X(02).                       
+      *      10 GBMGDAXXQ-NEW-CR-LMT           PIC 9(13)V99-.             160202
+             10 GBMGDAXXQ-NEW-CR-LMT           PIC 9(13)V99+.             160202
+             10 GBMGDAXXQ-AMT-SIGN             PIC X(01).                       
+          05 GBMGDAXXQ-UEF-INFO REDEFINES GBMGDAXXQ-FILLER.                     
+      *      10 GBMGDAXXQ-EXTRA-UEF-LMT        PIC 9(13)V99-.                   
+             10 GBMGDAXXQ-EXTRA-UEF-LMT        PIC 9(13)V99+.             160202
+                                                                                
+       01 GBMGDAXXA.                                                            
+          05 GBMGDAXXA-PROD-TP-CD              PIC X(03).                       
+          05 GBMGDAXXA-PROD-CAT-CD             PIC X(03).                       
+          05 GBMGDAXXA-PROD-CD                 PIC X(05).                       
+      *   05 GBMGDAXXA-PROD-PLAN               PIC X(02).                 130509
+          05 GBMGDAXXA-FILLER                  PIC X(02).                 130509
+          05 GBMGDAXXA-ACCT-SNAME              PIC X(20).                       
+          05 GBMGDAXXA-ACCT-STS                PIC X(01).                       
+          05 GBMGDAXXA-LSTFIN-DT               PIC X(10).                       
+          05 GBMGDAXXA-ACBL-DTL.                                                
+             10 GBMGDAXXA-BAL-DTL-CNT          PIC 9(02).                       
+             10 GBMGDAXXA-BAL-DTL OCCURS 20 TIMES.                              
+                15 GBMGDAXXA-CCY-CD            PIC X(03).                       
+      *         15 GBMGDAXXA-LEDG-BAL          PIC 9(13)V99-.             160202
+      *         15 GBMGDAXXA-AVAIL-BAL         PIC 9(13)V99-.             160202
+      *         15 GBMGDAXXA-TTL-FLT-AMT       PIC 9(13)V99-.             160202
+      *         15 GBMGDAXXA-TTL-HLD-AMT       PIC 9(13)V99-.             160202
+      *         15 GBMGDAXXA-CR-LMT            PIC 9(13)V99-.             160202
+                15 GBMGDAXXA-LEDG-BAL          PIC 9(13)V99+.                   
+                15 GBMGDAXXA-AVAIL-BAL         PIC 9(13)V99+.                   
+                15 GBMGDAXXA-TTL-FLT-AMT       PIC 9(13)V99+.                   
+                15 GBMGDAXXA-TTL-HLD-AMT       PIC 9(13)V99+.                   
+                15 GBMGDAXXA-CR-LMT            PIC 9(13)V99+.                   
+          05 GBMGDAXXA-HLD-PLC-DT              PIC X(10).                       
+          05 GBMGDAXXA-OD-IND                  PIC X(01).               030610  
+      *   05 GBMGDAXXA-EXTRA-UEF-LMT           PIC 9(13)V99-.    160202 030610  
+          05 GBMGDAXXA-EXTRA-UEF-LMT           PIC 9(13)V99+.           030610  
+          05 GBMGDAXXA-MSG-INDEX               PIC 9(02).                       
+          05  GBMGDAXXA-MSG-ENTRY-TABLE OCCURS 10 TIMES.                        
+               10 GBMGDAXXA-MSG-CODE           PIC X(07).                       
+               10 GBMGDAXXA-MSG-TEXT           PIC X(55).                       
+               10 GBMGDAXXA-MSG-REF            PIC X(20).                       
+               10 GBMGDAXXA-MSG-OVRD-LVL1      PIC X(02).                       
+               10 GBMGDAXXA-MSG-OVRD-LVL2      PIC X(02).                       
+               10 GBMGDAXXA-MSG-OVRD-TYPE      PIC X(01).                       
+               10 GBMGDAXXA-MSG-PRIORITY       PIC X(03).                       
+               10 GBMGDAXXA-MSG-LMT-AMT        PIC 9(13)V99.                    
+               10 GBMGDAXXA-MSG-LMT-SIGN       PIC X(01).                       
+               10 GBMGDAXXA-MSG-LMT-TP         PIC X(02).                       
+               10 GBMGDAXXA-MSG-AUTH-TP1       PIC X(01).                       
+               10 GBMGDAXXA-MSG-AUTH-TP2       PIC X(01).                       
+               10 GBMGDAXXA-MSG-EXMSG-CD       PIC X(06).                       
+               10 GBMGDAXXA-MSG-PRD-CD         PIC X(01).                       
+                                                                                
