@@ -28,12 +28,14 @@ public class HoldFundReleaseSucRes implements HoldFundRelease {
 		 * String[] data = testS[i].split("=", -1); map.put(data[0], data[1]); }
 		 */
 //		HashMap<String, MapEntity> retMapMsg = retMapMsg(outMsg);
+		System.out.println(outMsg);
 		HashMap<String, List> retMapMsg = retMapMsgM(outMsg);
 //		System.out.println(retMapMsg.keySet());
 //		System.out.println(retMapMsg);
 		String autRetMsg = autRetMsg(retMapMsg);
-		System.out.println("autRetMsg:"+autRetMsg);
-		return retoutMsg;
+//		System.out.println("autRetMsg:"+autRetMsg);
+		System.out.println(autRetMsg);
+		return autRetMsg;
 	}
 
 	@Override
@@ -80,20 +82,24 @@ public class HoldFundReleaseSucRes implements HoldFundRelease {
 			String[] fieldSplit = string.split(":");
 			String mapKey = fieldSplit[0];
 //			String mapKey = string.split("=",-1)[0];
-			String[] fieldDetSplit = fieldSplit[2].split("=",-1);
-			rowPos = Integer.parseInt(fieldSplit[1]);
-			colPos = Integer.parseInt(fieldDetSplit[0]);
-			fieldBody = fieldDetSplit[1];
-			mapEntity.setRowPos(rowPos);
-			mapEntity.setColPos(colPos);
-			mapEntity.setContentString(fieldBody);
-			if(hashMap.containsKey(mapKey)){
-				hashMap.get(mapKey).add(mapEntity);
-			}
-			else{
-				arrayList = new ArrayList();
-				arrayList.add(mapEntity);
-				hashMap.put(mapKey, arrayList);
+			try {
+				String[] fieldDetSplit =fieldSplit[2].split("=",-1);
+				rowPos = Integer.parseInt(fieldSplit[1]);
+				colPos = Integer.parseInt(fieldDetSplit[0]);
+				fieldBody = fieldDetSplit[1];
+				mapEntity.setRowPos(rowPos);
+				mapEntity.setColPos(colPos);
+				mapEntity.setContentString(fieldBody);
+				if(hashMap.containsKey(mapKey)){
+					hashMap.get(mapKey).add(mapEntity);
+				}
+				else{
+					arrayList = new ArrayList();
+					arrayList.add(mapEntity);
+					hashMap.put(mapKey, arrayList);
+				}
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
 			}
 			// ------------------------------
 			/*String[] data = testS[i].split("=", -1);
